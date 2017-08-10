@@ -5,17 +5,25 @@
         <title>Test Elevator</title>
     </head>
     <body>
-    Current Floor is : 7 <br/>
-    Request Floors are : 5,3,6 <br/><br/><br/>
-    Results: <br/><br/>
+   
         <?php
         require_once 'elevator.php';
         $elevator = new my_elevator;
-        $elevator->current_floor = 7;
-        $elevator->request_floor = array(5, 3, 6);
-        $elevator->maintenance(array(2, 4));
-        $elevator->call_evelator();
-        ?>
 
+        if(isset($_POST['sbtFloor']) && isset($_POST['current_floor']) && isset($_POST['requested_floor'])){
+       
+            $requestedFloor = explode(',', $_POST['requested_floor']);
+            
+            $elevator->current_floor = $_POST['current_floor'];
+            $elevator->request_floor = $requestedFloor;
+            $elevator->maintenance(array(2, 4));
+            $elevator->call_evelator();
+        }
+        ?>
+        <form method="post" >
+            Current Floor   :<input type="text" name="current_floor">  eg: 7 <br/>
+            Requested Floors:<input type="text" name="requested_floor">eg: 5,3,6 <br/>
+                                <input type="submit" name="sbtFloor">
+        </form>
     </body>
 </html>
