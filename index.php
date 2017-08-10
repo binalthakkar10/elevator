@@ -21,9 +21,20 @@
         }
         ?>
         <form method="post" >
-            Current Floor   :<input type="text" name="current_floor">  eg: 7 <br/>
-            Requested Floors:<input type="text" name="requested_floor">eg: 5,3,6 <br/>
+        <table border="2" cellpadding="1" cellspacing="2">
+        <tr>
+            <td>Current Floor   :</td>
+            <td><input type="text" name="current_floor">  eg: 7 </td>
+           </tr>
+           <tr>
+           <td> Requested Floors:</td>
+           <td><input type="text" name="requested_floor">eg: 5,3,6 </td>
+           </tr>
+           <tr><td colspan="2" align="center">
                                 <input type="submit" name="sbtFloor">
+                                </td>
+            </tr>
+        </table>
         </form>
     </body>
 </html>
